@@ -25,11 +25,17 @@ export default function Home() {
       <div className="marquee kurtz-marquee" aria-hidden="true"><div className="marquee__track">{[...MARQUEE, ...MARQUEE].map((item, index) => <span className="marquee__item" key={index}>{item}</span>)}</div></div>
       <section className="section kurtz-intro">
         <div className="wrap kurtz-intro__grid">
-          <span className="kurtz-section-number">01 / The experience</span>
-          <div>
+          <figure className="kurtz-welcome-photo">
+            <img src="/images/kurtz/photographer-welcome-preview.webp" alt="Wedding photographer holding her camera at an outdoor venue" />
+            <figcaption>Photographer portrait shown for preview</figcaption>
+          </figure>
+          <div className="kurtz-welcome-copy">
+            <span className="kurtz-section-number">01 / Welcome</span>
+            <p className="kurtz-welcome-note">Welcome to Kurtz Photography</p>
             <h2>Photographs that feel like the people in them.</h2>
             <p className="lede">The best photographs are more than beautiful. They bring back how the moment felt, who made you laugh and the details you never want to forget.</p>
-            <p>Kurtz Photography creates warm, natural imagery with thoughtful direction when you need it and room for your real personality to come through.</p>
+            <p>Hi, I’m Amanda. I create warm, natural imagery with thoughtful direction when you need it and room for your real personality to come through. My goal is to help you feel comfortable, enjoy the experience and leave with photographs you cannot wait to share.</p>
+            <Link to="/about" className="kurtz-text-link">A little more about Amanda <ArrowUpRight /></Link>
           </div>
         </div>
       </section>

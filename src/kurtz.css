@@ -60,13 +60,25 @@ main { overflow: hidden; }
 .kurtz-marquee .marquee__item { color: rgba(255,255,255,.9); font-family: var(--font-body); font-size: 11px; font-style: normal; letter-spacing: .18em; text-transform: uppercase; }
 .kurtz-marquee .marquee__item::after { color: #d7aa70; }
 
-.kurtz-intro__grid { display: grid; grid-template-columns: .34fr 1fr; gap: 80px; align-items: start; }
+.kurtz-intro__grid { display: grid; grid-template-columns: minmax(280px, .8fr) 1.2fr; gap: clamp(48px, 7vw, 92px); align-items: center; }
 .kurtz-intro h2, .kurtz-heading-row h2, .kurtz-location h2, .kurtz-final-cta h2,
 .kurtz-about-grid h2, .kurtz-wedding-split h2, .kurtz-portfolio-cta h2 {
   font-family: var(--font-display); font-size: clamp(2.6rem, 5.2vw, 5rem); line-height: .98;
   letter-spacing: -.045em; margin: 0 0 26px; font-weight: 500;
 }
 .kurtz-intro p:not(.lede) { color: var(--ink-soft); max-width: 65ch; }
+.kurtz-welcome-photo { margin: 0; position: relative; }
+.kurtz-welcome-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 40%; }
+.kurtz-welcome-photo figcaption {
+  margin-top: 10px; color: var(--muted); font-size: 11px; letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.kurtz-welcome-copy .kurtz-section-number { margin-bottom: 24px; }
+.kurtz-welcome-note {
+  margin: 0 0 12px; color: var(--coral-deep) !important; font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-style: italic;
+}
+.kurtz-welcome-copy .kurtz-text-link { margin-top: 18px; }
 .kurtz-featured-work { padding: clamp(72px, 9vw, 120px) 0; background: #ebe4d8; }
 .kurtz-heading-row { display: flex; justify-content: space-between; align-items: end; gap: 48px; margin-bottom: 42px; }
 .kurtz-heading-row h2 { margin: 14px 0 0; }
@@ -154,6 +166,35 @@ main { overflow: hidden; }
 .kurtz-form { background: #fff; border-radius: 0; box-shadow: none; border-color: var(--line); }
 .kurtz-form .btn { width: 100%; justify-content: center; }
 .kurtz-form input, .kurtz-form select, .kurtz-form textarea { border-radius: 0; background: #faf8f3; }
+.kurtz-form label span { color: var(--muted); font-weight: 400; }
+.kurtz-request-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 26px; }
+.kurtz-request-tabs button {
+  border: 1px solid var(--line); background: transparent; color: var(--ink-soft);
+  padding: 12px 14px; font: inherit; font-size: 14px; font-weight: 700;
+}
+.kurtz-request-tabs button.is-active { background: var(--kurtz-green); border-color: var(--kurtz-green); color: #fff; }
+.kurtz-specialty-picker { border: 0; padding: 0; margin: 0 0 24px; }
+.kurtz-specialty-picker legend { font-size: 13px; font-weight: 700; color: var(--ink-soft); margin-bottom: 10px; }
+.kurtz-specialty-picker > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.kurtz-specialty-picker button {
+  border: 1px solid var(--line); border-radius: 999px; background: #faf8f3;
+  padding: 8px 12px; color: var(--ink-soft); font: inherit; font-size: 12px; font-weight: 700;
+}
+.kurtz-specialty-picker button.is-active { background: #d9c09d; border-color: #b68b53; color: var(--ink); }
+.kurtz-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.kurtz-date-block {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 18px;
+  padding: 17px; margin-bottom: 18px; border: 1px solid var(--line); background: #faf8f3;
+}
+.kurtz-date-block .field { margin: 0; }
+.kurtz-date-block input[type="date"] { background: #fff; }
+.kurtz-date-block input:disabled { opacity: .45; cursor: not-allowed; }
+.kurtz-tbd { display: flex; align-items: center; gap: 9px; padding-bottom: 11px; white-space: nowrap; font-size: 14px; font-weight: 700; }
+.kurtz-tbd input { width: 18px; height: 18px; accent-color: var(--kurtz-green); }
+.kurtz-booking-guide { margin-top: 42px; padding-top: 28px; border-top: 1px solid var(--line); }
+.kurtz-booking-guide ul { list-style: none; padding: 0; margin: 18px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 9px 18px; }
+.kurtz-booking-guide li { color: var(--ink-soft); font-size: 14px; }
+.kurtz-booking-guide li::before { content: "—"; color: var(--coral); margin-right: 8px; }
 
 .kurtz-links { min-height: calc(100vh - 70px); padding: 70px 0; background: linear-gradient(145deg, #1e352d, #a37848); }
 .kurtz-links__card { background: rgba(245,241,233,.97); padding: clamp(28px, 5vw, 54px); box-shadow: 0 30px 90px rgba(0,0,0,.25); }
@@ -187,5 +228,13 @@ main { overflow: hidden; }
   .kurtz-portfolio-grid { grid-template-columns: 1fr; }
   .kurtz-portfolio-item--wide { grid-column: span 1; }
   .kurtz-portfolio-item { min-height: 510px; }
+  .kurtz-welcome-photo { max-width: 520px; }
+  .kurtz-form-row { grid-template-columns: 1fr; gap: 0; }
+  .kurtz-date-block { grid-template-columns: 1fr; align-items: start; gap: 12px; }
+  .kurtz-tbd { padding-bottom: 0; }
 }
 
+@media (max-width: 480px) {
+  .kurtz-request-tabs { grid-template-columns: 1fr; }
+  .kurtz-booking-guide ul { grid-template-columns: 1fr; }
+}
